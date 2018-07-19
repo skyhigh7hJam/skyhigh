@@ -22,9 +22,9 @@ public class CityMainControl : MonoBehaviour {
 	void Update () {
         
         Camera.main.transform.position = new Vector3(
-            Mathf.Sin(Time.time*0.25f)*10f,
+            Mathf.Sin(Time.time*0.05f)*10f,
 14f,
-Mathf.Cos(Time.time * 0.25f) * 10f
+Mathf.Cos(Time.time * 0.05f) * 10f
 
             );
         Camera.main.transform.LookAt(looktarget.transform);

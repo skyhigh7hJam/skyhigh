@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scene_henri.unity
     guid: e091fe7903787804aa1ac716b63fe2c5
   - enabled: 1
