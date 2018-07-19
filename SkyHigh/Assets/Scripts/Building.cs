@@ -13,7 +13,7 @@ public class Building : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        
+        this.transform.rotation = Quaternion.Euler(0, 45, 0);
 	}
 	
     public void buildHeight(int height, string name, int score)
@@ -30,6 +30,7 @@ public class Building : MonoBehaviour {
             height+0.1f,
             text.transform.localPosition.z    
         );
+        this.transform.Find("roof").localPosition = new Vector3(0f, height + 0.025f, 0f);
     }
 
 	// Update is called once per frame
