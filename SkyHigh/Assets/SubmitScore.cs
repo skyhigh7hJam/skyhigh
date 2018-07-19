@@ -36,4 +36,9 @@ public class SubmitScore : MonoBehaviour {
         this.GetComponent<Highscore>().Submit(name, Score);
         submit.SetActive(false);
     }
+
+    public void replay()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Builder_henri");
+    }
 }

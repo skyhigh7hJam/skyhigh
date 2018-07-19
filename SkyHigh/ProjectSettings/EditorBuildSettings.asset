@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/score_save.unity
     guid: c7a95115bc503ad41a2a7d2b05bd9957
+  - enabled: 1
+    path: Assets/Scenes/Builder_henri.unity
+    guid: 87d0c65a0486251408495f5ce51e619d
   m_configObjects: {}
