@@ -41,4 +41,9 @@ public class SubmitScore : MonoBehaviour {
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Builder_henri");
     }
+
+    public void showCity()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("scene_henri");
+    }
 }

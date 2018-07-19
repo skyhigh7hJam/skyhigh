@@ -19,4 +19,9 @@ public class CreditsControl : MonoBehaviour {
     {
         credits.SetActive(!credits.activeSelf);
     }
+
+    public void Replay()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Builder_henri");
+    }
 }

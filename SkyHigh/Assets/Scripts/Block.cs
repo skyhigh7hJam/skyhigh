@@ -5,26 +5,17 @@ using UnityEngine.UI;
 
 public class Block : MonoBehaviour
 {
-    private static bool first = true;
-    private static int score = 0;
     bool active = true;
-    private bool isFirst = false;
-    static float targetY = 1f;
-
+    
     // Use this for initialization
     void Start()
     {
-        score = 0;
-        
-        isFirst = first;
-        first = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isFirst)
-            Camera.main.transform.position = new Vector2(Camera.main.transform.position.x, targetY);// (targetY - Camera.main.transform.position.y)/50f);
+        
     }
 
     void OnCollisionEnter2D(Collision2D colz)
@@ -32,9 +23,8 @@ public class Block : MonoBehaviour
         if (colz.gameObject.tag == "BBlock" && active == true)
         {
             active = false;
-            targetY += 0.5f;
-            score += (int)Mathf.Floor(30 + UnityEngine.Random.value * 70);
-            GameObject.Find("Canvas/Panel/Score").GetComponent<Text>().text = score.ToString();
+            MainControl.camTarget += 0.65f;
+            MainControl.score += (int)Mathf.Floor(30 + UnityEngine.Random.value * 70);
         }
     }
 
@@ -42,11 +32,16 @@ public class Block : MonoBehaviour
     {
         if (other.gameObject.name == "LBorder" || other.gameObject.name == "RBorder")
         {
+            MainControl.ended = true;
             Debug.Log("Game Over");
-                SubmitScore.Score = score;
-                UnityEngine.SceneManagement.SceneManager.LoadScene("score_save");
-                
-            
+            SoundControl.instance.playGameEnd();
+            SubmitScore.Score = MainControl.score;
+            Invoke("moveToSubmit", 2f);
         }
+    }
+
+    void moveToSubmit()
+    {
+        Camera.main.GetComponent<MainControl>().showEnd();
     }
 }
