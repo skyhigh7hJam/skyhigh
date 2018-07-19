@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Block : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public class Block : MonoBehaviour
         {
             active = false;
             targetY += 0.5f;
-            
+            score += (int)Mathf.Floor(30 + UnityEngine.Random.value * 70);
+            GameObject.Find("Canvas/Panel/Text").GetComponent<Text>().text = score.ToString();
         }
     }
 
