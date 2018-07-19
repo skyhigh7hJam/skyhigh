@@ -8,7 +8,6 @@ public class Block : MonoBehaviour
     private static bool first = true;
     private static int score = 0;
     bool active = true;
-    GameObject hs;
     private bool isFirst = false;
     static float targetY = 1f;
 
@@ -16,9 +15,7 @@ public class Block : MonoBehaviour
     void Start()
     {
         score = 0;
-        GameObject hs = GameObject.Find("HighscoreSave");
-        if(hs != null && !false)
-            hs.SetActive(false);
+        
         isFirst = first;
         first = false;
     }
@@ -46,11 +43,10 @@ public class Block : MonoBehaviour
         if (other.gameObject.name == "LBorder" || other.gameObject.name == "RBorder")
         {
             Debug.Log("Game Over");
-            if(hs != null)
-            {
-                hs.SetActive(true);
-                hs.GetComponent<SubmitScore>().enableSave(score);
-            }
+                SubmitScore.Score = score;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("score_save");
+                
+            
         }
     }
 }

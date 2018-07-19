@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class SubmitScore : MonoBehaviour {
 
-    public int Score;
+    public static int Score;
 
     private GameObject submit;
 
+    private GameObject panel; 
 	// Use this for initialization
 	void Start () {
         submit = this.transform.Find("Panel/submit").gameObject;
+
+        this.panel = this.transform.Find("Panel").gameObject;
+        
 	}
 	
 	// Update is called once per frame
@@ -21,7 +25,8 @@ public class SubmitScore : MonoBehaviour {
 
     public void enableSave(int score)
     {
-        this.Score = score;
+        panel.SetActive(true);
+        
         submit.SetActive(true);
     }
 
