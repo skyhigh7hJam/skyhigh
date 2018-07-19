@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    private static bool first = true;
     private static int score = 0;
     bool active = true;
     GameObject hs;
-
-    float targetY = 1f;
+    private bool isFirst = false;
+    static float targetY = 1f;
 
     // Use this for initialization
     void Start()
     {
         score = 0;
         GameObject hs = GameObject.Find("HighscoreSave");
-        if(hs != null)
+        if(hs != null && !false)
             hs.SetActive(false);
+        isFirst = first;
+        first = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Camera.main.transform.position = new Vector2(Camera.main.transform.position.x, (targetY - Camera.main.transform.position.y)/50f);
+        if (isFirst)
+            Camera.main.transform.position = new Vector2(Camera.main.transform.position.x, targetY);// (targetY - Camera.main.transform.position.y)/50f);
     }
 
     void OnCollisionEnter2D(Collision2D colz)
@@ -30,7 +34,7 @@ public class Block : MonoBehaviour
         if (colz.gameObject.tag == "BBlock" && active == true)
         {
             active = false;
-            targetY += 0.75f;
+            targetY += 0.5f;
             
         }
     }
