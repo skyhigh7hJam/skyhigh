@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scene_henri.unity
     guid: e091fe7903787804aa1ac716b63fe2c5
+  - enabled: 1
+    path: Assets/Scenes/score_save.unity
+    guid: c7a95115bc503ad41a2a7d2b05bd9957
   m_configObjects: {}
